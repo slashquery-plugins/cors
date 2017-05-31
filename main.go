@@ -7,7 +7,7 @@ import (
 )
 
 func CORS(next http.Handler) http.Handler {
-	time := time.Now().String()
+	time := time.Now().UTC().String()
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		log.Println("CORS init")
 		w.Header().Set("sq-cors-version", time)
